@@ -1,0 +1,735 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: #111;
+  background-color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 5%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logo div {
+  line-height: 1.1;
+}
+
+.logo div h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.logo div p {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+nav ul {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;
+  transition: 0.3s;
+  font-size: large;
+}
+
+nav a:hover {
+  color: #e63946;
+}
+
+.cta {
+  background: #ff0033;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 0, 51, 0.342), 0 0 0 0 rgba(255, 0, 51, 0);
+  transition: box-shadow 0.25s ease, transform 0.18s ease;
+  /* subtle outer glow using a faint spread and a soft color */
+}
+
+.cta:hover {
+  background: #d9002a;
+  /* stronger glow on hover */
+  box-shadow: 0 8px 20px rgba(217, 0, 42, 0.22), 0 0 18px rgba(217, 0, 42, 0.18);
+  transform: translateY(-1px);
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 6%;
+  background: linear-gradient(180deg, #ffbfca 0%, #ffe7eb 100%);
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.3;
+  color: #111;
+  margin-bottom: 20px;
+  line-height: 5rem;
+  word-spacing: 0.4rem;
+}
+
+.hero h1 span {
+  color: #e63946;
+  position: relative;
+}
+
+.hero h1 svg {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 5vh;
+  max-width: 500px;
+}
+
+.buttons a {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.primary-btn {
+  background: #fff;
+  border: 2px solid #ff0033;
+  color: #ff0033;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn:hover {
+  background: #ff0033;
+  color: #fff;
+}
+
+.secondary-btn {
+  background: #ff0033;
+  color: #fff;
+  border: 2px solid #ff0033;
+}
+
+.secondary-btn:hover {
+  background: #d9002a;
+}
+
+.hero-img {
+  position: relative;
+}
+
+.hero-img img {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Decorative ring behind the hero image */
+.hero-img::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px; /* ring diameter */
+  height: 450px;
+  border-radius: 50%;
+  border: 70px solid rgba(230, 57, 70, 0.12); /* increased ring thickness */
+  box-shadow: 0 8px 40px rgba(230, 57, 70, 0.08);
+  z-index: 0; /* behind the image */
+  pointer-events: none;
+}
+
+/* Make sure the image sits above the ring */
+.hero-img img {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  position: absolute;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 60;
+}
+
+.badge.rating {
+  position: relative;
+  top: 55%;
+  min-width: 300px;
+  left: 0px;
+}
+
+.badge.stats {
+  position: relative;
+  bottom: -170px;
+  right: -35px;
+  min-width: 300px;
+}
+
+.badge.rating strong {
+  font-size: 3rem;
+  color: #22aa44;
+}
+
+.badge.stats strong {
+  font-size: 2rem;
+}
+.badge-text p {
+  margin: 0;
+}
+
+.badge img {
+  height: 80px;
+  width: auto;
+}
+
+/* container for badges so we can center them over the hero image on small screens */
+.badges-wrap {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  z-index: 70;
+}
+
+/* FEATURES SECTION */
+.features {
+  text-align: center;
+  padding: 80px 8%;
+  background: #fff;
+}
+
+.section-tag {
+  display: inline-block;
+  background: #ffe6e6;
+  color: #111;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.features h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #111;
+  font-weight: 500;
+  max-width: 75vw;
+  margin: 1rem auto;
+  margin-bottom: 3rem;
+}
+
+.features h2 span {
+  color: #e63946;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  scale: 1.1;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+footer {
+  background: #f8f8f8;
+  padding: 25px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Mobile / Navbar styles */
+.menu-toggle {
+  display: none; /* shown via media query */
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  z-index: 1400;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -90vw; /* hidden by default (full off-screen based on width) */
+  width: 90vw; /* cover 90% of viewport width */
+  height: 100vh;
+  background: #ffbfca;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+  padding: 22px;
+  transition: right 0.28s ease;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mobile-nav.open {
+  right: 0; /* slides in leaving 10% gap on the left */
+}
+
+/* (removed empty sibling rule) */
+
+.mobile-nav.open ~ .mobile-nav-overlay,
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav .mobile-close {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-nav a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 6px;
+}
+
+.mobile-cta {
+  margin-top: auto;
+}
+
+/* Mobile nav header with logo */
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mobile-logo img {
+  height: 44px;
+  width: auto;
+}
+
+/* Icon + label layout */
+.mobile-nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111;
+}
+
+.mobile-nav ul li svg {
+  flex-shrink: 0;
+}
+
+/* Mobile CTA style in panel */
+.mobile-nav .cta.mobile-cta {
+  display: inline-block;
+  background: #ff0033;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(217, 0, 42, 0.18);
+}
+
+/* Make mobile CTA full width-ish and centered */
+.mobile-nav .cta.mobile-cta {
+  width: calc(100% - 12px);
+  margin: 0 auto 6px auto;
+}
+
+/* ======= MERGED: max-width 768px (kept original order of your blocks) ======= */
+@media (max-width: 768px) {
+  /* --- block #1 --- */
+  nav ul {
+    display: none;
+  }
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-img img {
+    max-width: 100px;
+  }
+  .badge.rating {
+    top: 55%;
+    left: 0px;
+  }
+  .badge.stats {
+    bottom: 55px;
+    right: 0px;
+  }
+
+  /* --- block #2 --- */
+  .menu-toggle {
+    display: inline-block;
+  }
+  header {
+    padding: 14px 4%;
+    align-items: center;
+  }
+  .cta {
+    display: none;
+  } /* hide desktop CTA in header on mobile, use mobile panel */
+  .hero-content {
+    padding: 0 12px;
+  }
+  .hero-img img {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .hero-img::before {
+    width: 360px;
+    height: 360px;
+    border-width: 24px;
+  }
+
+  /* --- block #3 --- */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .hero-content {
+    order: 1;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 18px;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+  /* shrink the decorative SVG under the span so it doesn't overflow */
+  .hero h1 svg {
+    width: 160px;
+    height: auto;
+    top: -6px;
+  }
+  .hero-img {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+  }
+  /* make the decorative ring scale and remain centered */
+  .hero-img::before {
+    left: 50%;
+    transform: translate(-50%, -20%);
+    /* ensure ring doesn't overflow on small screens */
+    max-width: 90vw;
+    width: min(360px, 90vw);
+    height: min(360px, 90vw);
+    border-width: 24px;
+  }
+  /* place badges below the image on mobile */
+  .badge.rating,
+  .badge.stats {
+    position: static;
+    margin-top: 12px;
+    transform: none;
+    right: auto;
+    left: auto;
+  }
+  .features h2 {
+    font-size: 1.7rem;
+    margin-bottom: 5rem;
+  }
+
+  /* --- block #4 (header/hero/buttons duplicate) --- */
+  /* Header/nav adjustments */
+  .menu-toggle {
+    display: inline-block;
+  }
+  header {
+    padding: 14px 4%;
+    align-items: center;
+  }
+  .cta {
+    display: none;
+  } /* hide desktop CTA in header on mobile, use mobile panel */
+
+  /* Hero stacking: ensure text appears before image */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .hero-content {
+    order: 1;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 18px;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+  .hero h1 svg {
+    width: 160px;
+    height: auto;
+    top: -6px;
+  }
+  .hero-img {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+  }
+  .hero-img img {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .hero-img::before {
+    left: 50%;
+    transform: translate(-50%, -20%);
+    max-width: 90vw;
+    width: min(360px, 90vw);
+    height: min(360px, 90vw);
+    border-width: 24px;
+  }
+
+  /* Buttons stack on narrow screens */
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  .buttons a {
+    width: calc(100% - 48px);
+    max-width: 320px;
+    text-align: center;
+  }
+
+  /* badges placement on mobile (duplicate kept in order) */
+  .badge.rating,
+  .badge.stats {
+    position: static;
+    margin-top: 12px;
+    transform: none;
+    right: auto;
+    left: auto;
+  }
+
+  .features h2 {
+    font-size: 1.7rem;
+    margin-bottom: 5rem;
+  }
+}
+
+/* Consolidated responsive rules */
+@media (max-width: 992px) {
+  .hero {
+    padding: 60px 6%;
+  }
+
+  .hero-img::before {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+    padding: 0 5px;
+    max-width: 100%;
+    word-spacing: normal;
+  }
+
+  /* Center the hero image and make it responsive */
+  .hero-img {
+    position: relative; /* anchor for absolute badges */
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .hero-img img {
+    max-width: 320px;
+    width: min(72vw, 320px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    bottom: -1.6rem; /* slight lift so badges sit naturally */
+    z-index: 60;
+  }
+
+  /* Slightly reduce ring but keep it a bit larger than image for overlap */
+  .hero-img::before {
+    width: min(65vw, 320px);
+    height: min(65vw, 320px);
+    border-width: 50px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+  }
+
+  .badge {
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    z-index: 60;
+    max-height: 70px;
+    width: fit-content;
+  }
+
+  .badge.rating {
+    position: relative;
+    top: 39px;
+    left: 105px;
+    margin: 1rem 0;
+  }
+
+  .badge.stats {
+    position: relative;
+    bottom: -150px;
+    right: -10px;
+  }
+
+  .badge.stats img {
+    height: 50px;
+    width: 50px;
+    top: 1px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .buttons a {
+    width: calc(100% - 36px);
+  }
+
+  .features h2 {
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+  }
+
+  .feature-card {
+    max-width: 80%;
+    margin: auto;
+  }
+}
